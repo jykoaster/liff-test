@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  </head>
+  <body></body>
+</html>
+<script>
+  var liffID = '1656765753-gpONyAzm'
+
+  liff
+    .init({
+      liffId: liffID,
+    })
+    .then(function () {
+      console.log(liff.isLoggedIn())
+
+      // 這邊開始寫使用其他功能
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+
+  if (!liff.isLoggedIn()) {
+    liff.login({
+      // response_type: 'code',
+      // client_id: '1656765753',
+      redirect_uri: 'https://localhost/liff',
+      // state: '12345abcde',
+      // scope: 'profile',
+    })
+  }
+  console.log(liff.isLoggedIn())
+
+  // 引用 LIFF SDK 的頁面，頁面中的 lang 值
+  liff.getLanguage()
+
+  // LIFF SDK 的版本
+  liff.getVersion()
+
+  // 回傳是否由 LINE App 存取
+  liff.isInClient()
+
+  // 使用者是否登入 LINE 帳號
+  liff.isLoggedIn()
+
+  // 回傳使用者作業系統：ios、android、web
+  liff.getOS()
+
+  // 使用者的 LINE 版本
+  liff.getLineVersion()
+</script>
