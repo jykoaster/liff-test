@@ -11,6 +11,7 @@
     <button id="goGoogle">前往google</button>
     <button id="sendMsg">發送一段廢話</button>
     <button id="sendMsgF">發送一段廢話給你朋友</button>
+    <button id="scan">掃描QRcode</button>
   </body>
 </html>
 <script>
@@ -24,6 +25,10 @@
       // 這邊開始寫使用其他功能
       if (!liff.isLoggedIn()) {
         liff.login()
+      }
+
+      function scan() {
+        liff.scanCodeV2()
       }
 
       function sendMsgToFriend() {
@@ -65,6 +70,7 @@
       document.getElementById('goGoogle').onclick = openGoogle
       document.getElementById('sendMsg').onclick = sendMsg
       document.getElementById('sendMsgF').onclick = sendMsgToFriend
+      document.getElementById('scan').onclick = scan
     })
     .catch(function (error) {
       console.log(error)
