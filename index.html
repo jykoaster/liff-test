@@ -18,13 +18,12 @@
     })
     .then(function () {
       // 這邊開始寫使用其他功能
+      console.log(liff.isLoggedIn())
+      if (!liff.isLoggedIn()) {
+        liff.login()
+      }
     })
     .catch(function (error) {
       console.log(error)
     })
-
-  if (!liff.isLoggedIn()) {
-    liff.login()
-  }
-  console.log(liff.isLoggedIn())
 </script>
