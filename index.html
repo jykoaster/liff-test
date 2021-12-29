@@ -8,7 +8,8 @@
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   </head>
   <body>
-    <button id="rrr">123</button>
+    <button id="goGoogle">前往google</button>
+    <button id="sendMsg">發送一段廢話</button>
   </body>
 </html>
 <script>
@@ -20,17 +21,18 @@
     })
     .then(function () {
       // 這邊開始寫使用其他功能
-      console.log(liff.isLoggedIn())
       if (!liff.isLoggedIn()) {
         liff.login()
       }
 
-      liff.sendMessages([
-        {
-          type: 'text',
-          text: 'Hello, World!',
-        },
-      ])
+      function sendMsg() {
+        liff.sendMessages([
+          {
+            type: 'text',
+            text: '一段廢話',
+          },
+        ])
+      }
 
       function openGoogle() {
         liff.openWindow({
@@ -45,7 +47,8 @@
         })
       }
 
-      document.getElementById('rrr').onclick = openGoogle
+      document.getElementById('goGoogle').onclick = openGoogle
+      document.getElementById('sendMsg').onclick = sendMsg
     })
     .catch(function (error) {
       console.log(error)
