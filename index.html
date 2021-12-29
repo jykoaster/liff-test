@@ -10,6 +10,7 @@
   <body>
     <button id="goGoogle">前往google</button>
     <button id="sendMsg">發送一段廢話</button>
+    <button id="sendMsgF">發送一段廢話給你朋友</button>
   </body>
 </html>
 <script>
@@ -23,6 +24,20 @@
       // 這邊開始寫使用其他功能
       if (!liff.isLoggedIn()) {
         liff.login()
+      }
+
+      function sendMsgToFriend() {
+        liff.shareTargetPicker(
+          [
+            {
+              type: 'text',
+              text: '一段廢話',
+            },
+          ],
+          {
+            isMultiple: true,
+          }
+        )
       }
 
       function sendMsg() {
@@ -49,6 +64,7 @@
 
       document.getElementById('goGoogle').onclick = openGoogle
       document.getElementById('sendMsg').onclick = sendMsg
+      document.getElementById('sendMsgF').onclick = sendMsgToFriend
     })
     .catch(function (error) {
       console.log(error)
