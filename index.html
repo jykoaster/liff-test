@@ -12,6 +12,7 @@
     <button id="sendMsg">發送一段廢話</button>
     <button id="sendMsgF">發送一段廢話給你朋友</button>
     <button id="scan">掃描QRcode</button>
+    <div id="info"></div>
   </body>
 </html>
 <script>
@@ -28,7 +29,9 @@
       }
 
       function scan() {
-        liff.scanCodeV2()
+        liff.scanCodeV2().then((res) => {
+          window.location.href = res.value
+        })
       }
 
       function sendMsgToFriend() {
