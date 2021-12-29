@@ -17,8 +17,6 @@
       liffId: liffID,
     })
     .then(function () {
-      console.log(liff.isLoggedIn())
-
       // 這邊開始寫使用其他功能
     })
     .catch(function (error) {
@@ -29,7 +27,7 @@
     liff.login({
       // response_type: 'code',
       // client_id: '1656765753',
-      redirect_uri: 'https://localhost/liff',
+      // redirect_uri: 'https://localhost/liff',
       // state: '12345abcde',
       // scope: 'profile',
     })
